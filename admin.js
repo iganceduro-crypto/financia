@@ -22,6 +22,33 @@ const listeDemandes =
 let demandes =
     JSON.parse(localStorage.getItem("demandesFinancia")) || [];
 
+async function chargerDemandes() {
+    try {
+        const response = await fetch('/api/requests', {
+            credentials: 'same-origin'
+        });
+
+        if (!response.ok) {
+            if (response.status === 401) {
+                window.location.href = '/admin-login.html';
+                return;
+            }
+            throw new Error('Impossible de charger les demandes.');
+        }
+
+        const data = await response.json();
+        demandes = Array.isArray(data) ? data : [];
+        localStorage.setItem('demandesFinancia', JSON.stringify(demandes));
+        mettreAJourStats();
+        afficherDemandes();
+    } catch (error) {
+        console.error(error);
+        demandes = JSON.parse(localStorage.getItem('demandesFinancia')) || [];
+        mettreAJourStats();
+        afficherDemandes();
+    }
+}
+
 
 // ==========================================
 // AFFICHER LES STATISTIQUES
@@ -75,12 +102,58 @@ function changerStatut(index, nouveauStatut) {
     afficherDemandes();
 }
 
-function approuverDemande(index) {
-    changerStatut(index, "Approuvée");
+async function approuverDemande(index) {
+    const demande = demandes[index];
+    if (!demande) return;
+
+    try {
+        const response = await fetch(`/api/requests/${demande.id}/status`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ statut: 'Approuvée' })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data?.message || 'Erreur lors de l’approbation.');
+        }
+
+        demandes[index] = data.demande;
+        sauvegarderDemandes();
+        mettreAJourStats();
+        afficherDemandes();
+        localStorage.setItem('financiaDernierMessageClient', data.demande.message_client || 'Votre demande a été validée.');
+        alert('Demande approuvée. Un e-mail de validation a été envoyé au client.');
+    } catch (error) {
+        alert(error.message || 'Erreur lors de l’approbation.');
+    }
 }
 
-function refuserDemande(index) {
-    changerStatut(index, "Refusée");
+async function refuserDemande(index) {
+    const demande = demandes[index];
+    if (!demande) return;
+
+    try {
+        const response = await fetch(`/api/requests/${demande.id}/status`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ statut: 'Refusée' })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data?.message || 'Erreur lors du refus.');
+        }
+
+        demandes[index] = data.demande;
+        sauvegarderDemandes();
+        mettreAJourStats();
+        afficherDemandes();
+        localStorage.setItem('financiaDernierMessageClient', data.demande.message_client || 'Votre demande a été refusée.');
+        alert('Demande refusée. Un e-mail de refus a été envoyé au client.');
+    } catch (error) {
+        alert(error.message || 'Erreur lors du refus.');
+    }
 }
 
 function afficherDemandes() {
@@ -193,6 +266,7 @@ function voirDemande(index) {
         "Pièce verso : " + (demande.pieceVerso || "—"),
         "",
         "Statut : " + statut,
+        "Message client : " + (demande.messageClient || "Aucun message client."),
         "Date : " + (demande.date || "—")
     ].join("\n");
 
@@ -204,5 +278,4 @@ function voirDemande(index) {
 // INITIALISATION
 // ==========================================
 
-mettreAJourStats();
-afficherDemandes();
+chargerDemandes();

@@ -45,6 +45,9 @@ const traductions = {
         featureProcessus: "✓ Processus simplifié",
         featureTransparence: "✓ Informations transparentes",
         featureSupport: "✓ Assistance client",
+        temoignagesLabel: "TÉMOIGNAGES",
+        temoignagesTitre: "Ils nous font confiance",
+        temoignagesSousTitre: "Des clients satisfaits qui ont concrétisé leur projet avec FINANCIA.",
         contactLabel: "CONTACT",
         contactTitre: "Besoin d'informations ?",
         contactSousTitre: "Contactez notre équipe pour obtenir plus d'informations sur nos solutions.",
@@ -77,6 +80,8 @@ const traductions = {
         objetCredit: "Objet du crédit",
         soumettreDemande: "Soumettre ma demande",
         confirmationMessage: "Votre demande a bien été enregistrée.",
+        demandeEnAttente: "Votre demande a bien été enregistrée. Elle est actuellement en attente de validation. Un message de confirmation vous sera envoyé par e-mail dès validation.",
+        demandeValidee: "Votre demande a été validée. Un e-mail de validation a été envoyé à votre adresse.",
         choisirPays: "Choisir votre pays",
         choisirType: "Choisir un crédit",
         choisirDuree: "Choisir la durée",
@@ -133,6 +138,9 @@ const traductions = {
         featureProcessus: "✓ Simplified process",
         featureTransparence: "✓ Transparent information",
         featureSupport: "✓ Customer support",
+        temoignagesLabel: "TESTIMONIALS",
+        temoignagesTitre: "They trust us",
+        temoignagesSousTitre: "Satisfied clients who have turned their project into reality with FINANCIA.",
         contactLabel: "CONTACT",
         contactTitre: "Need more information?",
         contactSousTitre: "Contact our team for more information about our solutions.",
@@ -165,6 +173,8 @@ const traductions = {
         objetCredit: "Purpose of the loan",
         soumettreDemande: "Submit my application",
         confirmationMessage: "Your request has been registered successfully.",
+        demandeEnAttente: "Your request has been successfully registered. It is currently pending validation. A confirmation email will be sent once approved.",
+        demandeValidee: "Your request has been approved. A validation email has been sent to your address.",
         choisirPays: "Choose your country",
         choisirType: "Choose a loan",
         choisirDuree: "Choose the duration",
@@ -221,6 +231,9 @@ const traductions = {
         featureProcessus: "✓ Vereinfachter Prozess",
         featureTransparence: "✓ Transparente Informationen",
         featureSupport: "✓ Kundenservice",
+        temoignagesLabel: "BEWERTUNGEN",
+        temoignagesTitre: "Sie vertrauen uns",
+        temoignagesSousTitre: "Zufriedene Kunden, die ihr Projekt mit FINANCIA realisiert haben.",
         contactLabel: "KONTAKT",
         contactTitre: "Benötigen Sie Informationen?",
         contactSousTitre: "Kontaktieren Sie unser Team für weitere Informationen zu unseren Lösungen.",
@@ -253,6 +266,8 @@ const traductions = {
         objetCredit: "Zweck des Kredits",
         soumettreDemande: "Antrag einreichen",
         confirmationMessage: "Ihre Anfrage wurde erfolgreich gespeichert.",
+        demandeEnAttente: "Ihre Anfrage wurde erfolgreich gespeichert. Sie befindet sich derzeit in der Prüfung. Sobald sie genehmigt ist, erhalten Sie eine Bestätigungs-E-Mail.",
+        demandeValidee: "Ihre Anfrage wurde genehmigt. Eine Bestätigungs-E-Mail wurde an Ihre Adresse gesendet.",
         choisirPays: "Wählen Sie Ihr Land",
         choisirType: "Kredit auswählen",
         choisirDuree: "Dauer auswählen",
@@ -309,6 +324,9 @@ const traductions = {
         featureProcessus: "✓ Proceso simplificado",
         featureTransparence: "✓ Información transparente",
         featureSupport: "✓ Atención al cliente",
+        temoignagesLabel: "TESTIMONIOS",
+        temoignagesTitre: "Confían en nosotros",
+        temoignagesSousTitre: "Clientes satisfechos que han hecho realidad su proyecto con FINANCIA.",
         contactLabel: "CONTACTO",
         contactTitre: "¿Necesita información?",
         contactSousTitre: "Contacte a nuestro equipo para obtener más información sobre nuestras soluciones.",
@@ -341,6 +359,8 @@ const traductions = {
         objetCredit: "Objeto del crédito",
         soumettreDemande: "Enviar mi solicitud",
         confirmationMessage: "Su solicitud se ha registrado correctamente.",
+        demandeEnAttente: "Su solicitud se ha registrado correctamente. Actualmente está pendiente de validación. Se le enviará un correo de confirmación cuando sea aprobada.",
+        demandeValidee: "Su solicitud ha sido validada. Se ha enviado un correo de validación a su dirección.",
         choisirPays: "Elija su país",
         choisirType: "Elija un crédito",
         choisirDuree: "Elija la duración",
@@ -397,6 +417,8 @@ const traductions = {
         objetCredit: "Scopo del prestito",
         soumettreDemande: "Invia la richiesta",
         confirmationMessage: "La tua richiesta è stata registrata con successo.",
+        demandeEnAttente: "La tua richiesta è stata registrata correttamente. È attualmente in attesa di validazione. Riceverai una e-mail di conferma appena approvata.",
+        demandeValidee: "La tua richiesta è stata validata. Una e-mail di conferma è stata inviata al tuo indirizzo.",
         choisirPays: "Scegli il tuo paese",
         choisirType: "Scegli un prestito",
         choisirDuree: "Scegli la durata",
@@ -453,6 +475,8 @@ const traductions = {
         objetCredit: "Objetivo do crédito",
         soumettreDemande: "Enviar pedido",
         confirmationMessage: "O seu pedido foi registado com sucesso.",
+        demandeEnAttente: "O seu pedido foi registado com sucesso. Está atualmente em espera de validação. Será enviado um e-mail de confirmação assim que for validado.",
+        demandeValidee: "O seu pedido foi validado. Um e-mail de validação foi enviado para o seu endereço.",
         choisirPays: "Escolha o seu país",
         choisirType: "Escolha um crédito",
         choisirDuree: "Escolha a duração",
@@ -509,6 +533,8 @@ const traductions = {
         objetCredit: "Doel van de lening",
         soumettreDemande: "Aanvraag indienen",
         confirmationMessage: "Uw aanvraag is succesvol geregistreerd.",
+        demandeEnAttente: "Uw aanvraag is succesvol geregistreerd. Deze staat momenteel in behandeling. U ontvangt een bevestiging per e-mail zodra deze is goedgekeurd.",
+        demandeValidee: "Uw aanvraag is goedgekeurd. Een validatie-e-mail is naar uw adres verzonden.",
         choisirPays: "Kies uw land",
         choisirType: "Kies een lening",
         choisirDuree: "Kies de duur",
@@ -565,6 +591,8 @@ const traductions = {
         objetCredit: "Cel pożyczki",
         soumettreDemande: "Wyślij wniosek",
         confirmationMessage: "Twój wniosek został pomyślnie zarejestrowany.",
+        demandeEnAttente: "Twój wniosek został pomyślnie zarejestrowany. Obecnie oczekuje na weryfikację. Po zatwierdzeniu otrzymasz e-mail z potwierdzeniem.",
+        demandeValidee: "Twój wniosek został zatwierdzony. E-mail z potwierdzeniem został wysłany na Twój adres.",
         choisirPays: "Wybierz swój kraj",
         choisirType: "Wybierz pożyczkę",
         choisirDuree: "Wybierz okres",
@@ -597,6 +625,41 @@ const traductions = {
         demande: "Aizdevuma pieprasījums",
         demandeTitre: "Aizdevuma pieprasījums",
         demandeSousTitre: "Aizpildiet veidlapu, lai iesniegtu pieprasījumu.",
+        badgeHero: "FINANŠU RISINĀJUMI",
+        sousTitreHero: "Pieteiciet aizdevumu dažu sekunžu laikā un uzziniet sava mēneša maksājuma aprēķinu.",
+        btnDemanderPret: "Pieteikt aizdevumu",
+        btnDecouvrirCredits: "Iepazīt mūsu kredītus",
+        simulationRapide: "Ātra simulācija",
+        mensualiteEstimee: "Aprēķinātā mēneša iemaksa",
+        modifierSimulation: "Mainīt simulāciju →",
+        nosSolutions: "MŪSU RISINĀJUMI",
+        creditsTitre: "Kredīti, kas pielāgoti jūsu projektiem",
+        creditsSousTitre: "Iepazīstiet mūsu galvenos finansēšanas risinājumus.",
+        enSavoirPlus: "Uzzināt vairāk →",
+        demandePretLabel: "AIZDEVUMA PIEPRASĪJUMS",
+        demandePretTitre: "Pieteikiet aizdevumu",
+        demandePretSousTitre: "Šis pieprasījums ir informatīvs un neietver kredīta piedāvājumu.",
+        montantCreditSimu: "Aizdevuma summa",
+        dureeCreditSimu: "Termiņš (mēneši)",
+        tauxAnnuelSimu: "Gada likme (%)",
+        nosEngagements: "MŪSU SAISTĪBAS",
+        engagementTitre: "Vienkārša un caurspīdīga pieredze",
+        aboutDescription: "FINANCIA ir demonstrācijas platforma, kas paredzēta mūsdienīgu kredītu simulācijas un pieteikumu risinājumu demonstrēšanai.",
+        featureSimulation: "✓ Ātra simulācija",
+        featureProcessus: "✓ Vienkāršots process",
+        featureTransparence: "✓ Caurspīdīga informācija",
+        featureSupport: "✓ Klientu atbalsts",
+        temoignagesLabel: "ATSAUKMES",
+        temoignagesTitre: "Viņi mums uzticas",
+        temoignagesSousTitre: "Apmierināti klienti, kuri realizēja savu projektu kopā ar FINANCIA.",
+        contactLabel: "KONTAKTI",
+        contactTitre: "Vai nepieciešama informācija?",
+        contactSousTitre: "Sazinieties ar mūsu komandu, lai iegūtu vairāk informācijas par mūsu risinājumiem.",
+        blocIdentite: "Personas dati",
+        blocCoordonnees: "Kontaktinformācija",
+        blocProfession: "Profesionālā situācija",
+        blocDocuments: "Dokumenti",
+        blocBanque: "Bankas dati",
         montant: "Pieprasītā summa",
         duree: "Termiņš (mēneši)",
         taux: "Gada procentu likme (%)",
@@ -621,6 +684,8 @@ const traductions = {
         objetCredit: "Kredīta mērķis",
         soumettreDemande: "Iesniegt pieteikumu",
         confirmationMessage: "Jūsu pieprasījums ir veiksmīgi reģistrēts.",
+        demandeEnAttente: "Jūsu pieprasījums ir veiksmīgi reģistrēts. Pašlaik tas gaida validāciju. Kad tas tiks apstiprināts, jūs saņemsiet apstiprinājuma e-pastu.",
+        demandeValidee: "Jūsu pieprasījums ir apstiprināts. Validācijas e-pasts ir nosūtīts uz jūsu adresi.",
         choisirPays: "Izvēlieties valsti",
         choisirType: "Izvēlieties kredītu",
         choisirDuree: "Izvēlieties termiņu",
@@ -653,6 +718,41 @@ const traductions = {
         demande: "Paskolos paraiška",
         demandeTitre: "Paskolos paraiška",
         demandeSousTitre: "Užpildykite formą, kad pateiktumėte paraišką.",
+        badgeHero: "FINANSINIAI SPRENDIMAI",
+        sousTitreHero: "Prašykite paskolos per kelias sekundes ir sužinokite mėnesio įmokos vertę.",
+        btnDemanderPret: "Prašyti paskolos",
+        btnDecouvrirCredits: "Sužinoti apie mūsų kreditus",
+        simulationRapide: "Greita simuliacija",
+        mensualiteEstimee: "Numatoma mėnesinė įmoka",
+        modifierSimulation: "Keisti simuliaciją →",
+        nosSolutions: "MŪSŲ SPRENDIMAI",
+        creditsTitre: "Kreditai, pritaikyti jūsų projektams",
+        creditsSousTitre: "Susipažinkite su pagrindiniais finansavimo sprendimais.",
+        enSavoirPlus: "Sužinoti daugiau →",
+        demandePretLabel: "PASKOLOS PARAIŠKA",
+        demandePretTitre: "Prašykite paskolos",
+        demandePretSousTitre: "Ši paraiška yra orientacinė ir nepriklauso nuo kredito pasiūlymo.",
+        montantCreditSimu: "Paskolos suma",
+        dureeCreditSimu: "Terminas (mėnesiais)",
+        tauxAnnuelSimu: "Metinė norma (%)",
+        nosEngagements: "MŪSŲ Į SIPAREIGOJIMAI",
+        engagementTitre: "Paprastas ir skaidrus procesas",
+        aboutDescription: "FINANCIA yra demonstracinė platforma, skirta pristatyti šiuolaikinius kredito simuliacijos ir paraiškų sprendimus.",
+        featureSimulation: "✓ Greita simuliacija",
+        featureProcessus: "✓ Supaprastintas procesas",
+        featureTransparence: "✓ Skaidri informacija",
+        featureSupport: "✓ Klientų pagalba",
+        temoignagesLabel: "ATSAKINGUMAS",
+        temoignagesTitre: "Jie pasitiki mumis",
+        temoignagesSousTitre: "Patenkinti klientai, kurie įgyvendino savo projektą su FINANCIA.",
+        contactLabel: "KONTAKTAI",
+        contactTitre: "Reikia informacijos?",
+        contactSousTitre: "Susisiekite su mūsų komanda ir gaukite daugiau informacijos apie mūsų sprendimus.",
+        blocIdentite: "Asmeninė informacija",
+        blocCoordonnees: "Kontaktiniai duomenys",
+        blocProfession: "Profesinė padėtis",
+        blocDocuments: "Dokumentai",
+        blocBanque: "Banko duomenys",
         montant: "Prašoma suma",
         duree: "Terminas (mėnesiais)",
         taux: "Metinė palūkanų norma (%)",
@@ -677,6 +777,8 @@ const traductions = {
         objetCredit: "Kredito tikslas",
         soumettreDemande: "Pateikti paraišką",
         confirmationMessage: "Jūsų paraiška sėkmingai užregistruota.",
+        demandeEnAttente: "Jūsų paraiška sėkmingai užregistruota. Ji šiuo metu laukia patvirtinimo. Kai bus patvirtinta, jums bus išsiųstas patvirtinimo el. laiškas.",
+        demandeValidee: "Jūsų paraiška patvirtinta. Patvirtinimo el. laiškas buvo išsiųstas į jūsų adresą.",
         choisirPays: "Pasirinkite šalį",
         choisirType: "Pasirinkite kreditą",
         choisirDuree: "Pasirinkite terminą",
@@ -816,8 +918,11 @@ function changerLangue(langue) {
     });
 
     const confirmation = document.getElementById("confirmation");
-    if (confirmation && t.confirmationMessage) {
-        confirmation.textContent = t.confirmationMessage;
+    if (confirmation) {
+        const messageClient = localStorage.getItem("financiaDernierMessageClient");
+        confirmation.textContent = messageClient || t.confirmationMessage || "Votre demande a bien été enregistrée.";
+        confirmation.style.background = messageClient ? "#fff7d6" : "#e8f5e9";
+        confirmation.style.color = messageClient ? "#8a6d00" : "#2e7d32";
     }
 
     // Sélecteur
@@ -1025,6 +1130,8 @@ if (creditForm) {
 
                 id: Date.now(),
 
+                langue: document.documentElement.lang || localStorage.getItem("langueFinancia") || "fr",
+
                 nom:
                     document.getElementById("nom").value,
 
@@ -1106,23 +1213,25 @@ if (creditForm) {
             );
 
 
-            const confirmation =
+                    const confirmation =
                 document.getElementById(
                     "confirmation"
                 );
 
+            const langueActuelle = document.documentElement.lang || "fr";
+            const messageAttente = traductions[langueActuelle]?.demandeEnAttente || "Votre demande a bien été enregistrée. Elle est actuellement en attente de validation.";
+
+            demande.messageClient = messageAttente;
+            demande.statut = "En attente";
+            demande.emailStatus = "En attente";
+
             if (confirmation) {
-
-                confirmation.textContent =
-                    "Votre demande a bien été enregistrée.";
-
-                confirmation.style.background =
-                    "#e8f5e9";
-
-                confirmation.style.color =
-                    "#2e7d32";
+                confirmation.textContent = messageAttente;
+                confirmation.style.background = "#fff7d6";
+                confirmation.style.color = "#8a6d00";
             }
 
+            localStorage.setItem("financiaDernierMessageClient", messageAttente);
 
             creditForm.reset();
         }
@@ -1146,6 +1255,38 @@ function afficherSectionDemande() {
     });
 }
 
+    const temoignages = [
+        { nom: "Amina S.", role: "Entrepreneure", note: 5, texte: "Un accompagnement clair et rapide. J’ai obtenu une réponse en quelques jours." },
+        { nom: "Jean D.", role: "Chef d’entreprise", note: 5, texte: "Le simulateur est très utile et le service client est réactif." },
+        { nom: "Nadia B.", role: "Professionnelle indépendante", note: 5, texte: "La procédure était simple et les informations très bien expliquées." },
+        { nom: "Olivier M.", role: "Consultant", note: 5, texte: "Très bon suivi et un processus sans stress pour mon projet." },
+        { nom: "Sophie T.", role: "Cadre", note: 5, texte: "J’ai trouvé une solution adaptée en fonction de mes besoins." },
+        { nom: "Lucas K.", role: "Commerçant", note: 5, texte: "Le site est facile à utiliser et l’offre est très transparente." },
+        { nom: "Mariam C.", role: "Chef de projet", note: 5, texte: "Une expérience fluide, rapide et rassurante de bout en bout." },
+        { nom: "Yves A.", role: "Entrepreneur", note: 5, texte: "Je recommande FINANCIA pour son professionnalisme et sa simplicité." },
+        { nom: "Hélène R.", role: "Salariée", note: 5, texte: "Le formulaire est clair et le service de support très utile." },
+        { nom: "Koffi P.", role: "Manager", note: 5, texte: "Le projet a été financé avec une bonne compréhension de mes besoins." }
+    ];
+
+    function afficherTemoignages() {
+        const container = document.getElementById("temoignagesList");
+        if (!container) return;
+
+        container.innerHTML = temoignages.map((item) => `
+            <article class="testimonial-card">
+                <div class="stars">${'★'.repeat(item.note)}${'☆'.repeat(5 - item.note)}</div>
+                <p>“${item.texte}”</p>
+                <div class="author">
+                    <div class="avatar">${item.nom.charAt(0)}</div>
+                    <div>
+                        <strong>${item.nom}</strong>
+                        <span>${item.role}</span>
+                    </div>
+                </div>
+            </article>
+        `).join('');
+    }
+
 // ==========================================
 // 7. INITIALISATION
 // ==========================================
@@ -1153,6 +1294,8 @@ function afficherSectionDemande() {
 document.addEventListener(
     "DOMContentLoaded",
     function() {
+
+        afficherTemoignages();
 
         const boutonsDemande = document.querySelectorAll('a[href="#simulateur"]');
         boutonsDemande.forEach((bouton) => {

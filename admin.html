@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FINANCIA - Administration</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="admin-header">
+        <div class="container">
+            <h1>FINANCIA</h1>
+            <p>Tableau de bord administrateur</p>
+        </div>
+    </header>
+
+
+    <!-- DASHBOARD -->
+    <main class="admin-container">
+
+        <div class="admin-title">
+            <h2>Tableau de bord</h2>
+            <p>Gestion des demandes de crédit</p>
+        </div>
+
+
+        <!-- STATISTIQUES -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <h3>Demandes</h3>
+                <strong id="totalDemandes">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>En attente</h3>
+                <strong id="demandesAttente">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>Approuvées</h3>
+                <strong id="demandesApprouvees">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>Refusées</h3>
+                <strong id="demandesRefusees">0</strong>
+            </div>
+
+        </section>
+
+
+        <!-- DEMANDES -->
+        <section class="demandes-section">
+
+            <h2>Demandes de crédit</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Téléphone</th>
+                            <th>Type</th>
+                            <th>Montant</th>
+                            <th>Durée</th>
+                            <th>Statut</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listeDemandes"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="admin.js"></script>
+    <script>
+        async function verifierSessionAdmin() {
+            try {
+                const res = await fetch('/api/session');
+                const data = await res.json();
+                if (!data.authenticated) {
+                    window.location.href = '/admin-login.html';
+                }
+            } catch (error) {
+                window.location.href = '/admin-login.html';
+            }
+        }
+        verifierSessionAdmin();
+    </script>
+
+</body>
+</html>
