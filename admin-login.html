@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FINANCIA - Connexion admin</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #0b3d91, #0f5bd7);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .login-box {
+      width: min(420px, 90vw);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+    }
+    .login-box h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+    .login-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .login-box input {
+      padding: 14px 16px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    .login-box button {
+      background: #c9a227;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 12px;
+      min-height: 22px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>FINANCIA</h1>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Nom d'utilisateur" required />
+      <input type="password" id="password" placeholder="Mot de passe" required />
+      <button type="submit">Se connecter</button>
+    </form>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      message.textContent = '';
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Connexion impossible.');
+        }
+
+        window.location.href = '/admin';
+      } catch (error) {
+        message.textContent = error.message;
+        message.style.color = '#ffdce0';
+      }
+    });
+  </script>
+</body>
+</html>

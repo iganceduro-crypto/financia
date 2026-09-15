@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FINANCIA — Solutions de crédit</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                FINANCIA
+            </div>
+
+            <ul class="menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#credits">Nos crédits</a></li>
+                <li><a href="#simulateur">Simulateur</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <div class="language-selector">
+    <select id="languageSelect" onchange="changerLangue(this.value)">
+        <option value="fr">🇫🇷 Français</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="lv">🇱🇻 Latviešu</option>
+        <option value="lt">🇱🇹 Lietuvių</option>
+    </select>
+    <div class="currency-selector">
+    <select id="currencySelect" onchange="changerDevise(this.value)">
+        <option value="XOF">🇧🇯 XOF — FCFA</option>
+        <option value="EUR">🇪🇺 EUR — Euro</option>
+        <option value="GBP">🇬🇧 GBP — Livre sterling</option>
+        <option value="PLN">🇵🇱 PLN — Złoty</option>
+    </select>
+</div>
+</div>
+
+            </ul>
+
+            <a href="#simulateur" class="btn-nav" data-i18n="simuler">
+                Demande de prêt
+            </a>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section id="accueil" class="hero">
+
+        <div class="hero-content">
+
+            <span class="badge" data-i18n="badgeHero">
+                SOLUTIONS FINANCIÈRES
+            </span>
+
+            <h1 data-i18n="titre">
+                Financez vos projets
+                <span>simplement.</span>
+            </h1>
+
+            <p data-i18n="sousTitreHero">
+                Demandez votre prêt en quelques secondes
+                et découvrez une estimation de vos mensualités.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#simulateur" class="btn-primary" data-i18n="btnDemanderPret">
+                    Demander mon prêt
+                </a>
+
+                <a href="#credits" class="btn-secondary" data-i18n="btnDecouvrirCredits">
+                    Découvrir nos crédits
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- CREDITS -->
+    <section id="credits" class="section">
+
+        <div class="section-title">
+
+            <span data-i18n="nosSolutions">NOS SOLUTIONS</span>
+
+            <h2 data-i18n="creditsTitre">
+                Des crédits adaptés à vos projets
+            </h2>
+
+            <p data-i18n="creditsSousTitre">
+                Découvrez nos principales solutions de financement.
+            </p>
+
+        </div>
+
+
+        <div class="credit-grid">
+
+            <div class="credit-card">
+
+                <div class="icon">👤</div>
+
+                <h3 data-i18n="creditPersonnel">Crédit personnel</h3>
+
+                <p data-i18n="creditPersonnelDesc">
+                    Financez vos besoins personnels,
+                    vos projets ou vos dépenses importantes.
+                </p>
+
+                <a href="#simulateur" data-i18n="enSavoirPlus">
+                    En savoir plus →
+                </a>
+
+            </div>
+
+
+            <div class="credit-card">
+
+                <div class="icon">🏢</div>
+
+                <h3 data-i18n="creditProfessionnel">Crédit professionnel</h3>
+
+                <p data-i18n="creditProfessionnelDesc">
+                    Financez le développement de votre
+                    entreprise ou votre activité.
+                </p>
+
+                <a href="#simulateur" data-i18n="enSavoirPlus">
+                    En savoir plus →
+                </a>
+
+            </div>
+
+
+            <div class="credit-card">
+
+                <div class="icon">🏠</div>
+
+                <h3 data-i18n="creditImmobilier">Crédit immobilier</h3>
+
+                <p data-i18n="creditImmobilierDesc">
+                    Donnez vie à votre projet immobilier
+                    grâce à une solution adaptée.
+                </p>
+
+                <a href="#simulateur" data-i18n="enSavoirPlus">
+                    En savoir plus →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SIMULATEUR -->
+    <section id="simulateur" class="simulator-section" hidden>
+        <div class="simulator-layout">
+
+            <div class="simulator">
+                <div class="section-title">
+                    <span data-i18n="demandePretLabel">DEMANDE DE PRÊT</span>
+                    <h2 data-i18n="demandePretTitre">Demandez votre prêt</h2>
+                    <p data-i18n="demandePretSousTitre">Cette demande est indicative et ne constitue pas une offre de crédit.</p>
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="montantCreditSimu">Montant du crédit</label>
+                    <input type="number" id="montant" value="1000000" min="100000">
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="dureeCreditSimu">Durée (mois)</label>
+                    <input type="number" id="duree" value="24" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="tauxAnnuelSimu">Taux annuel (%)</label>
+                    <input type="number" id="taux" value="3" min="0" step="0.1">
+                </div>
+
+                <button class="btn-primary calculate" onclick="calculerCredit()" data-i18n="calculer">
+                    Calculer
+                </button>
+
+                <div class="result">
+                    <span data-i18n="mensualiteEstimee">Mensualité estimée</span>
+                    <strong id="mensualite">46 145 FCFA</strong>
+                </div>
+            </div>
+
+            <div class="demande-panel">
+                <div class="section-title">
+                    <h2 data-i18n="demandeTitre">Demande de crédit</h2>
+                    <p data-i18n="demandeSousTitre">Remplissez le formulaire pour soumettre votre demande.</p>
+                </div>
+
+                <div class="form-section-title" data-i18n="blocIdentite">Informations personnelles</div>
+
+                <form class="credit-form" id="creditForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom" data-i18n="nom">Nom et prénom</label>
+                            <input type="text" id="nom" data-i18n-placeholder="nomPlaceholder" placeholder="Ex : Jean Dupont" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pays" data-i18n="pays">Pays de résidence</label>
+                            <select id="pays" required>
+                                <option value="" data-i18n="choisirPays">Choisir votre pays</option>
+                                <option value="Benin">Bénin</option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                                <option value="Côte d'Ivoire">Côte d’Ivoire</option>
+                                <option value="France">France</option>
+                                <option value="Allemagne">Allemagne</option>
+                                <option value="Espagne">Espagne</option>
+                                <option value="Italie">Italie</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Belgique">Belgique</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Royaume-Uni">Royaume-Uni</option>
+                                <option value="Pologne">Pologne</option>
+                                <option value="Sénégal">Sénégal</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Mali">Mali</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Pays-Bas">Pays-Bas</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title" data-i18n="blocCoordonnees">Coordonnées</div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone" data-i18n="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" data-i18n-placeholder="telephonePlaceholder" placeholder="Ex : 97 00 00 00" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" data-i18n="email">Adresse email</label>
+                            <input type="email" id="email" data-i18n-placeholder="emailPlaceholder" placeholder="Ex : jean@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title" data-i18n="blocProfession">Situation professionnelle</div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="profession" data-i18n="profession">Profession / activité</label>
+                            <input type="text" id="profession" data-i18n-placeholder="professionPlaceholder" placeholder="Ex : Agent commercial" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="employeur" data-i18n="employeur">Employeur / entreprise</label>
+                            <input type="text" id="employeur" data-i18n-placeholder="employeurPlaceholder" placeholder="Ex : FINANCIA Services" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="revenu" data-i18n="revenu">Revenu mensuel (FCFA)</label>
+                            <input type="number" id="revenu" data-i18n-placeholder="revenuPlaceholder" placeholder="Ex : 250000" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="typeCredit" data-i18n="typeCredit">Type de crédit</label>
+                            <select id="typeCredit" required>
+                                <option value="" data-i18n="choisirType">Choisir un crédit</option>
+                                <option value="personnel" data-i18n="creditPersonnel">Crédit personnel</option>
+                                <option value="professionnel" data-i18n="creditProfessionnel">Crédit professionnel</option>
+                                <option value="immobilier" data-i18n="creditImmobilier">Crédit immobilier</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="montantDemande" data-i18n="montantDemande">Montant demandé (FCFA)</label>
+                            <input type="number" id="montantDemande" data-i18n-placeholder="montantDemandePlaceholder" placeholder="Ex : 1000000" min="50000" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dureeDemande" data-i18n="dureeDemande">Durée (mois)</label>
+                            <select id="dureeDemande" required>
+                                <option value="" data-i18n="choisirDuree">Choisir la durée</option>
+                                <option value="6">6 mois</option>
+                                <option value="12">12 mois</option>
+                                <option value="24">24 mois</option>
+                                <option value="36">36 mois</option>
+                                <option value="48">48 mois</option>
+                                <option value="60">60 mois</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title" data-i18n="blocDocuments">Pièces justificatives</div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pieceRecto" data-i18n="pieceRecto">Pièce d’identité recto</label>
+                            <input type="file" id="pieceRecto" accept="image/*,.pdf" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pieceVerso" data-i18n="pieceVerso">Pièce d’identité verso</label>
+                            <input type="file" id="pieceVerso" accept="image/*,.pdf" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title" data-i18n="blocBanque">Informations bancaires</div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="banque" data-i18n="banque">Banque</label>
+                            <input type="text" id="banque" data-i18n-placeholder="banquePlaceholder" placeholder="Ex : Banque Atlantique" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="titulaireCompte" data-i18n="titulaireCompte">Titulaire du compte</label>
+                            <input type="text" id="titulaireCompte" data-i18n-placeholder="titulaireComptePlaceholder" placeholder="Ex : Jean Dupont" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="iban" data-i18n="iban">IBAN / numéro de compte</label>
+                            <input type="text" id="iban" data-i18n-placeholder="ibanPlaceholder" placeholder="Ex : BJ66 1234 5678 9012" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adresse" data-i18n="adresse">Adresse</label>
+                            <input type="text" id="adresse" data-i18n-placeholder="adressePlaceholder" placeholder="Ex : 12 rue de la Paix, Cotonou" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="objetCredit" data-i18n="objetCredit">Objet du crédit</label>
+                        <textarea id="objetCredit" rows="5" data-i18n-placeholder="objetCreditPlaceholder" placeholder="Expliquez brièvement votre projet..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit" data-i18n="soumettreDemande">Soumettre ma demande</button>
+                </form>
+
+                <div id="confirmation" class="confirmation" data-i18n="confirmationMessage"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- A PROPOS -->
+    <section id="apropos" class="section about">
+
+        <div>
+
+            <span data-i18n="nosEngagements">NOS ENGAGEMENTS</span>
+
+            <h2 data-i18n="engagementTitre">
+                Une expérience simple et transparente
+            </h2>
+
+        </div>
+
+        <div class="about-text">
+
+            <p data-i18n="aboutDescription">
+                FINANCIA est une plateforme de démonstration
+                conçue pour présenter des solutions modernes
+                de simulation et de demande de crédit.
+            </p>
+
+            <div class="features">
+
+                <div data-i18n="featureSimulation">✓ Simulation rapide</div>
+
+                <div data-i18n="featureProcessus">✓ Processus simplifié</div>
+
+                <div data-i18n="featureTransparence">✓ Informations transparentes</div>
+
+                <div data-i18n="featureSupport">✓ Assistance client</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+
+        <div>
+
+            <span data-i18n="contactLabel">CONTACT</span>
+
+            <h2 data-i18n="contactTitre">
+                Besoin d'informations ?
+            </h2>
+
+            <p data-i18n="contactSousTitre">
+                Contactez notre équipe pour obtenir
+                plus d'informations sur nos solutions.
+            </p>
+
+        </div>
+        <div class="contact-box">
+
+            <p>📞 +351 925582533</p>
+
+            <p>✉️ contact@financia.demo</p>
+
+            
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="logo">
+            FINANCIA
+        </div>
+
+        <p>
+            © 2026 FINANCIA — Prototype de démonstration
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
