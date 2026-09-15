@@ -14,8 +14,8 @@ const DB_FILE = path.join(DATA_DIR, 'financia.db');
 fs.mkdirSync(DATA_DIR, { recursive: true });
 
 const db = new sqlite3.Database(DB_FILE);
-const DEFAULT_ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
-const DEFAULT_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
+const DEFAULT_ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'Cheiky';
+const DEFAULT_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'cheiky123';
 
 const emailTransporter = process.env.EMAIL_HOST && process.env.EMAIL_USER && process.env.EMAIL_PASS
   ? nodemailer.createTransport({
@@ -383,6 +383,76 @@ async function initializeDatabase() {
     await run('INSERT INTO admins (username, password_hash) VALUES (?, ?)', [DEFAULT_ADMIN_USERNAME, hash]);
   }
 }
+
+app.get('/api/admin/settings', requireAuth, async (req, res) => {
+  try {
+    const admin = await get('SELECT id, username FROM admins WHERE id = ?', [req.session.user.id]);
+
+    if (!admin) {
+      return res.status(404).json({ message: 'Administrateur introuvable.' });
+    }
+
+    return res.json({ ok: true, username: admin.username });
+  } catch (error) {
+    return res.status(500).json({ message: 'Erreur lors de la récupération des paramètres.', error: error.message });
+  }
+});
+
+app.put('/api/admin/settings', requireAuth, async (req, res) => {
+  const { username, password, currentPassword } = req.body || {};
+  const nextUsername = String(username || '').trim();
+  const nextPassword = String(password || '').trim();
+
+  if (!nextUsername) {
+    return res.status(400).json({ message: 'Le nom d’utilisateur est obligatoire.' });
+  }
+
+  if (nextPassword && nextPassword.length < 6) {
+    return res.status(400).json({ message: 'Le mot de passe doit contenir au moins 6 caractères.' });
+  }
+
+  try {
+    const currentAdmin = await get('SELECT * FROM admins WHERE id = ?', [req.session.user.id]);
+
+    if (!currentAdmin) {
+      return res.status(404).json({ message: 'Administrateur introuvable.' });
+    }
+
+    if (currentPassword && !(await bcrypt.compare(currentPassword, currentAdmin.password_hash))) {
+      return res.status(401).json({ message: 'Le mot de passe actuel est incorrect.' });
+    }
+
+    const existing = await get('SELECT * FROM admins WHERE username = ? AND id != ?', [nextUsername, req.session.user.id]);
+
+    if (existing) {
+      return res.status(409).json({ message: 'Ce nom d’utilisateur est déjà utilisé.' });
+    }
+
+    let query = 'UPDATE admins SET username = ?';
+    const params = [nextUsername];
+
+    if (nextPassword) {
+      const hash = await bcrypt.hash(nextPassword, 10);
+      query += ', password_hash = ?';
+      params.push(hash);
+    }
+
+    query += ' WHERE id = ?';
+    params.push(req.session.user.id);
+
+    await run(query, params);
+
+    req.session.user.username = nextUsername;
+
+    return res.json({
+      ok: true,
+      username: nextUsername,
+      message: 'Les informations administrateur ont bien été mises à jour.'
+    });
+  } catch (error) {
+    return res.status(500).json({ message: 'Erreur lors de la mise à jour des paramètres.', error: error.message });
+  }
+});
 
 app.get('/api/health', (req, res) => {
   res.json({ ok: true, message: 'Financia API is running.' });

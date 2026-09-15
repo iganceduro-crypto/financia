@@ -84,23 +84,98 @@
 
         </section>
 
+        <section class="demandes-section" style="margin-top: 28px;">
+            <h2>Paramètres administrateur</h2>
+            <form id="adminSettingsForm" style="display:flex; flex-direction:column; gap:12px; max-width: 500px;">
+                <div>
+                    <label for="adminUsername" style="display:block; margin-bottom:6px; font-weight:bold;">Nom d’utilisateur</label>
+                    <input id="adminUsername" type="text" name="username" placeholder="Nom d’utilisateur" style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px;" required>
+                </div>
+
+                <div>
+                    <label for="adminCurrentPassword" style="display:block; margin-bottom:6px; font-weight:bold;">Mot de passe actuel</label>
+                    <input id="adminCurrentPassword" type="password" name="currentPassword" placeholder="Mot de passe actuel" style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px;" required>
+                </div>
+
+                <div>
+                    <label for="adminNewPassword" style="display:block; margin-bottom:6px; font-weight:bold;">Nouveau mot de passe</label>
+                    <input id="adminNewPassword" type="password" name="password" placeholder="Nouveau mot de passe" style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px;" required>
+                </div>
+
+                <button type="submit" class="btn-voir" style="width:max-content;">Enregistrer</button>
+            </form>
+            <div id="adminSettingsMessage" style="margin-top: 12px; min-height: 22px; font-weight: 600;"></div>
+        </section>
+
     </main>
 
 
     <!-- JAVASCRIPT -->
     <script src="admin.js"></script>
     <script>
+        const adminSettingsForm = document.getElementById('adminSettingsForm');
+        const adminSettingsMessage = document.getElementById('adminSettingsMessage');
+        const adminUsernameInput = document.getElementById('adminUsername');
+
         async function verifierSessionAdmin() {
             try {
                 const res = await fetch('/api/session');
                 const data = await res.json();
                 if (!data.authenticated) {
                     window.location.href = '/admin-login.html';
+                    return;
                 }
+
+                const settingsResponse = await fetch('/api/admin/settings', { credentials: 'same-origin' });
+                const settingsData = await settingsResponse.json();
+                if (!settingsResponse.ok) {
+                    throw new Error(settingsData.message || 'Erreur de chargement des paramètres.');
+                }
+
+                adminUsernameInput.value = settingsData.username || '';
             } catch (error) {
+                console.error(error);
                 window.location.href = '/admin-login.html';
             }
         }
+
+        adminSettingsForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            adminSettingsMessage.textContent = '';
+            adminSettingsMessage.style.color = '#0f172a';
+
+            const username = adminUsernameInput.value.trim();
+            const currentPassword = document.getElementById('adminCurrentPassword').value;
+            const newPassword = document.getElementById('adminNewPassword').value;
+
+            try {
+                const response = await fetch('/api/admin/settings', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({
+                        username,
+                        password: newPassword,
+                        currentPassword
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Impossible de modifier les paramètres.');
+                }
+
+                adminSettingsMessage.textContent = data.message || 'Paramètres enregistrés.';
+                adminSettingsMessage.style.color = '#166534';
+                document.getElementById('adminCurrentPassword').value = '';
+                document.getElementById('adminNewPassword').value = '';
+            } catch (error) {
+                adminSettingsMessage.textContent = error.message;
+                adminSettingsMessage.style.color = '#991b1b';
+            }
+        });
+
         verifierSessionAdmin();
     </script>
 
